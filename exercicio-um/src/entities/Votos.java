@@ -49,15 +49,15 @@ public class Votos {
 		this.votosNulos = votosNulos;
 	}
 	
-	public Double percentualVotosValidos(Double quantidade) {
+	public Double percentualVotosValidos(Double percentual) {
 		return (votosValidos * 100) / totalEleitores;
 	}
 	
-	public Double percentualVotosBrancos(Double quantidade) {
+	public Double percentualVotosBrancos(Double percentual) {
 		return (votosBrancos * 100) / totalEleitores;
 	}
 	
-	public Double percentualVotosNulos(Double quantidade) {
+	public Double percentualVotosNulos(Double percentual) {
 		return (votosNulos * 100) / totalEleitores;
 	}
 }
