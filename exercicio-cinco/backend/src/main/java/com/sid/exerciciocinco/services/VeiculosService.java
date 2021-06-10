@@ -50,7 +50,7 @@ public class VeiculosService {
 		copiaDtoParaEntidade(dto, veiculos);
 		return new VeiculosDTO(veiculos);
 	}
-
+	
 	public void delete(Long id) {
 		try {
 			repository.deleteById(id);
