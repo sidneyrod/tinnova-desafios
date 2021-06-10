@@ -24,9 +24,16 @@ public class VeiculosService {
 		return list;
 	}
 
+	@Transactional(readOnly = true)
 	public Veiculos findById(Long id) {
 		Optional<Veiculos> obj = repository.findById(id);
 		Veiculos veiculos = obj.orElseThrow(() -> new ResourceNotFoundException("Entidade não encontrada"));
+		return veiculos;
+	}
+
+	@Transactional()
+	public Veiculos inserir(Veiculos veiculos) {
+		veiculos = repository.save(veiculos);
 		return veiculos;
 	}
 }
