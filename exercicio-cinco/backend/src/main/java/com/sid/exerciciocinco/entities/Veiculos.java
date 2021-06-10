@@ -1,5 +1,6 @@
 package com.sid.exerciciocinco.entities;
 
+import java.io.Serializable;
 import java.time.Instant;
 
 import javax.persistence.Column;
@@ -17,7 +18,8 @@ import com.sid.exerciciocinco.entities.enums.StatusVendaVeiculo;
 
 @Entity
 @Table(name = "tb_veiculos")
-public class Veiculos {
+public class Veiculos implements Serializable{
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
