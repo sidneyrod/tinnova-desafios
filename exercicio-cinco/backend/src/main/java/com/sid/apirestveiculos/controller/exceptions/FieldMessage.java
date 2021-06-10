@@ -1,4 +1,4 @@
-package com.sid.exerciciocinco.controller.exceptions;
+package com.sid.apirestveiculos.controller.exceptions;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package com.sid.exerciciocinco.entities;
+package com.sid.apirestveiculos.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
@@ -14,7 +14,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
-import com.sid.exerciciocinco.entities.enums.StatusVendaVeiculo;
+import com.sid.apirestveiculos.entities.enums.StatusVendaVeiculo;
 
 @Entity
 @Table(name = "tb_veiculos")

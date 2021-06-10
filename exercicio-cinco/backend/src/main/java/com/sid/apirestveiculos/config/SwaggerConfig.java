@@ -1,4 +1,4 @@
-package com.sid.exerciciocinco.config;
+package com.sid.apirestveiculos.config;
 
 import java.util.ArrayList;
 

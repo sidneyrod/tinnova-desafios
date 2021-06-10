@@ -1,4 +1,4 @@
-package com.sid.exerciciocinco.entities.enums;
+package com.sid.apirestveiculos.entities.enums;
 
 public enum StatusVendaVeiculo {
 	

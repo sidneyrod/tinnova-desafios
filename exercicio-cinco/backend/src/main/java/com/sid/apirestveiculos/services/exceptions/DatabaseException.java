@@ -1,4 +1,4 @@
-package com.sid.exerciciocinco.services.exceptions;
+package com.sid.apirestveiculos.services.exceptions;
 
 public class DatabaseException extends RuntimeException {
 	

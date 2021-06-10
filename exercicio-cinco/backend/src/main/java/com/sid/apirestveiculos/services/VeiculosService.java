@@ -1,4 +1,4 @@
-package com.sid.exerciciocinco.services;
+package com.sid.apirestveiculos.services;
 
 import java.util.Optional;
 
@@ -10,11 +10,11 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.sid.exerciciocinco.dto.VeiculosDTO;
-import com.sid.exerciciocinco.entities.Veiculos;
-import com.sid.exerciciocinco.repository.VeiculosRepository;
-import com.sid.exerciciocinco.services.exceptions.DatabaseException;
-import com.sid.exerciciocinco.services.exceptions.ResourceNotFoundException;
+import com.sid.apirestveiculos.dto.VeiculosDTO;
+import com.sid.apirestveiculos.entities.Veiculos;
+import com.sid.apirestveiculos.repository.VeiculosRepository;
+import com.sid.apirestveiculos.services.exceptions.DatabaseException;
+import com.sid.apirestveiculos.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class VeiculosService {

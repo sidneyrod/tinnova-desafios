@@ -1,4 +1,4 @@
-package com.sid.exerciciocinco.dto;
+package com.sid.apirestveiculos.dto;
 
 import java.io.Serializable;
 
@@ -7,8 +7,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 
-import com.sid.exerciciocinco.entities.Veiculos;
-import com.sid.exerciciocinco.entities.enums.StatusVendaVeiculo;
+import com.sid.apirestveiculos.entities.Veiculos;
+import com.sid.apirestveiculos.entities.enums.StatusVendaVeiculo;
 
 public class VeiculosDTO implements Serializable {
 	private static final long serialVersionUID = 1L;

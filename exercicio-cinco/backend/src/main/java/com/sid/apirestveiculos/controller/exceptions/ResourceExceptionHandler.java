@@ -1,4 +1,4 @@
-package com.sid.exerciciocinco.controller.exceptions;
+package com.sid.apirestveiculos.controller.exceptions;
 
 import java.time.Instant;
 
@@ -11,8 +11,8 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.sid.exerciciocinco.services.exceptions.DatabaseException;
-import com.sid.exerciciocinco.services.exceptions.ResourceNotFoundException;
+import com.sid.apirestveiculos.services.exceptions.DatabaseException;
+import com.sid.apirestveiculos.services.exceptions.ResourceNotFoundException;
 
 @ControllerAdvice
 public class ResourceExceptionHandler {
