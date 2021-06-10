@@ -10,6 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.sid.exerciciocinco.dto.VeiculosDTO;
 import com.sid.exerciciocinco.entities.Veiculos;
 import com.sid.exerciciocinco.repository.VeiculosRepository;
 import com.sid.exerciciocinco.services.exceptions.DatabaseException;
@@ -22,35 +23,32 @@ public class VeiculosService {
 	private VeiculosRepository repository;
 
 	@Transactional(readOnly = true)
-	public Page<Veiculos> findAllPaged(PageRequest pageRequest) {
+	public Page<VeiculosDTO> findAllPaged(PageRequest pageRequest) {
 		Page<Veiculos> list = repository.findAll(pageRequest);
-		return list;
+		return list.map(x -> new VeiculosDTO(x));
 	}
 
 	@Transactional(readOnly = true)
-	public Veiculos findById(Long id) {
+	public VeiculosDTO findById(Long id) {
 		Optional<Veiculos> obj = repository.findById(id);
 		Veiculos veiculos = obj.orElseThrow(() -> new ResourceNotFoundException("Entidade " + id + " não encontrada"));
-		return veiculos;
+		return new VeiculosDTO(veiculos);
 	}
 
 	@Transactional
-	public Veiculos inserir(Veiculos veiculos) {
+	public VeiculosDTO inserir(VeiculosDTO dto) {
+		Veiculos veiculos = new Veiculos();
+		copiaDtoParaEntidade(dto, veiculos);
 		veiculos = repository.save(veiculos);
-		return veiculos;
+		return new VeiculosDTO(veiculos);
 	}
 
 	@Transactional
-	public Veiculos atualizar(Long id, Veiculos veiculos) {
+	public VeiculosDTO atualizar(Long id, VeiculosDTO dto) {
 		Optional<Veiculos> obj = repository.findById(id);
-		veiculos = obj.orElseThrow(() -> new ResourceNotFoundException("Entidade " + id + " não encontrada"));
-		veiculos.setVeiculo(veiculos.getVeiculo());
-		veiculos.setMarca(veiculos.getMarca());
-		veiculos.setAno(veiculos.getAno());
-		veiculos.setDescricao(veiculos.getDescricao());
-		veiculos.setVendido(veiculos.getVendido());
-		veiculos = repository.save(veiculos);
-		return veiculos;
+		Veiculos veiculos = obj.orElseThrow(() -> new ResourceNotFoundException("Entidade " + id + " não encontrada"));
+		copiaDtoParaEntidade(dto, veiculos);
+		return new VeiculosDTO(veiculos);
 	}
 
 	public void delete(Long id) {
@@ -61,5 +59,13 @@ public class VeiculosService {
 		} catch (DataIntegrityViolationException e) {
 			throw new DatabaseException("Violação de integridade");
 		}
+	}
+	
+	public void copiaDtoParaEntidade(VeiculosDTO dto, Veiculos entidade) {
+		entidade.setVeiculo(dto.getVeiculo());
+		entidade.setMarca(dto.getMarca());
+		entidade.setAno(dto.getAno());
+		entidade.setDescricao(dto.getDescricao());
+		entidade.setVendido(dto.getVendido());
 	}
 }

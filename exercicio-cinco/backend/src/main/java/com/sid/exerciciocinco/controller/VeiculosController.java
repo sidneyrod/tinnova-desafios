@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.sid.exerciciocinco.entities.Veiculos;
+import com.sid.exerciciocinco.dto.VeiculosDTO;
 import com.sid.exerciciocinco.services.VeiculosService;
 
 @RestController
@@ -29,7 +29,7 @@ public class VeiculosController {
 	private VeiculosService service;
 	
 	@GetMapping
-	public ResponseEntity<Page<Veiculos>> findAll(
+	public ResponseEntity<Page<VeiculosDTO>> findAll(
 			@RequestParam(value = "page", defaultValue = "0") Integer page,
 			@RequestParam(value = "linesPerPage", defaultValue = "12") Integer linesPerPage,
 			@RequestParam(value = "direction", defaultValue = "ASC") String direction,
@@ -38,31 +38,31 @@ public class VeiculosController {
 		
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
 		
-		Page<Veiculos> list = service.findAllPaged(pageRequest);
+		Page<VeiculosDTO> list = service.findAllPaged(pageRequest);
 		return ResponseEntity.ok().body(list);
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Veiculos> findById(@PathVariable Long id) {
-		Veiculos veiculos = service.findById(id);
-		return ResponseEntity.ok().body(veiculos);
+	public ResponseEntity<VeiculosDTO> findById(@PathVariable Long id) {
+		VeiculosDTO dto = service.findById(id);
+		return ResponseEntity.ok().body(dto);
 	}
 	
 	@PostMapping
-	public ResponseEntity<Veiculos> inserir(@RequestBody Veiculos veiculos) {
-		veiculos = service.inserir(veiculos);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(veiculos.getId()).toUri();
-		return ResponseEntity.created(uri).body(veiculos);
+	public ResponseEntity<VeiculosDTO> inserir(@RequestBody VeiculosDTO dto) {
+		dto = service.inserir(dto);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
+		return ResponseEntity.created(uri).body(dto);
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<Veiculos> atualizar(@PathVariable Long id, @RequestBody Veiculos veiculos) {
-		veiculos = service.atualizar(id, veiculos);		
-		return ResponseEntity.ok().body(veiculos);
+	public ResponseEntity<VeiculosDTO> atualizar(@PathVariable Long id, @RequestBody VeiculosDTO dto) {
+		dto = service.atualizar(id, dto);		
+		return ResponseEntity.ok().body(dto);
 	}
 	
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<Veiculos> delete(@PathVariable Long id) {
+	public ResponseEntity<VeiculosDTO> delete(@PathVariable Long id) {
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}
