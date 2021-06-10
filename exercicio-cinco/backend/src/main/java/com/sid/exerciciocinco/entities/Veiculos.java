@@ -18,42 +18,39 @@ import com.sid.exerciciocinco.entities.enums.StatusVendaVeiculo;
 
 @Entity
 @Table(name = "tb_veiculos")
-public class Veiculos implements Serializable{
+public class Veiculos implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String veiculo;
 	private String marca;
 	private Integer ano;
-	
+
 	@Column(columnDefinition = "TEXT")
 	private String descricao;
-	
+
 	@Enumerated(EnumType.STRING)
 	private StatusVendaVeiculo vendido;
-	
+
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant created;
-	
+
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant updated;
-	
+
 	public Veiculos() {
 	}
 
-	public Veiculos(Long id, String veiculo, String marca, Integer ano, String descricao, StatusVendaVeiculo vendido,
-			Instant created, Instant updated) {
+	public Veiculos(Long id, String veiculo, String marca, Integer ano, String descricao, StatusVendaVeiculo vendido) {
 		this.id = id;
 		this.veiculo = veiculo;
 		this.marca = marca;
 		this.ano = ano;
 		this.descricao = descricao;
 		this.vendido = vendido;
-		this.created = created;
-		this.updated = updated;
 	}
 
 	public Long getId() {
@@ -103,12 +100,12 @@ public class Veiculos implements Serializable{
 	public void setVendido(StatusVendaVeiculo vendido) {
 		this.vendido = vendido;
 	}
-	
+
 	@PrePersist
 	public void prePersist() {
 		created = Instant.now();
 	}
-	
+
 	@PreUpdate
 	public void preUpdate() {
 		updated = Instant.now();

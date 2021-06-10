@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -51,6 +52,11 @@ public class VeiculosController {
 		veiculos = service.inserir(veiculos);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(veiculos.getId()).toUri();
 		return ResponseEntity.created(uri).body(veiculos);
-		
 	}
+	
+	@PutMapping(value = "/{id}")
+	public ResponseEntity<Veiculos> atualizar(@PathVariable Long id, @RequestBody Veiculos veiculos) {
+		veiculos = service.atualizar(id, veiculos);		
+		return ResponseEntity.ok().body(veiculos);
+	}	
 }
