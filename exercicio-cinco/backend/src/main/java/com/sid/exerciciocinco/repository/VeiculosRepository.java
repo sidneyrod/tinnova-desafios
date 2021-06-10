@@ -7,5 +7,4 @@ import com.sid.exerciciocinco.entities.Veiculos;
 
 @Repository
 public interface VeiculosRepository extends JpaRepository<Veiculos, Long> {
-
 }

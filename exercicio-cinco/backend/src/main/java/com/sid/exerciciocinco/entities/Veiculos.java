@@ -28,6 +28,8 @@ public class Veiculos implements Serializable{
 	private String veiculo;
 	private String marca;
 	private Integer ano;
+	
+	@Column(columnDefinition = "TEXT")
 	private String descricao;
 	
 	@Enumerated(EnumType.STRING)
