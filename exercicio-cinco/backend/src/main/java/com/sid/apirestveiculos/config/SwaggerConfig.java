@@ -34,9 +34,7 @@ public class SwaggerConfig {
 				"API REST de cadastro de veículos.", 
 				"1.0",
 				"Terms of Service",
-				new Contact("Sidney Rodrigues", 
-							"https://github.com/sidneyrod/", 
-							"sidney.silva.rodrigues@outlook.com"),
+				new Contact("Sidney Rodrigues", "https://github.com/sidneyrod/", "sidney.silva.rodrigues@outlook.com"),
 				"Apache License Version 2.0", "https://www.apache.org/licesen.html", new ArrayList<>()
 		);
 		
