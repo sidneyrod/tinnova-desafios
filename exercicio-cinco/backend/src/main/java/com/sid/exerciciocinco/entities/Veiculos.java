@@ -27,7 +27,7 @@ public class Veiculos implements Serializable {
 
 	private String veiculo;
 	private String marca;
-	private Integer ano;
+	private String ano;
 
 	@Column(columnDefinition = "TEXT")
 	private String descricao;
@@ -44,7 +44,7 @@ public class Veiculos implements Serializable {
 	public Veiculos() {
 	}
 
-	public Veiculos(Long id, String veiculo, String marca, Integer ano, String descricao, StatusVendaVeiculo vendido) {
+	public Veiculos(Long id, String veiculo, String marca, String ano, String descricao, StatusVendaVeiculo vendido) {
 		this.id = id;
 		this.veiculo = veiculo;
 		this.marca = marca;
@@ -77,11 +77,11 @@ public class Veiculos implements Serializable {
 		this.marca = marca;
 	}
 
-	public Integer getAno() {
+	public String getAno() {
 		return ano;
 	}
 
-	public void setAno(Integer ano) {
+	public void setAno(String ano) {
 		this.ano = ano;
 	}
 

@@ -2,6 +2,11 @@ package com.sid.exerciciocinco.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
+
 import com.sid.exerciciocinco.entities.Veiculos;
 import com.sid.exerciciocinco.entities.enums.StatusVendaVeiculo;
 
@@ -9,16 +14,31 @@ public class VeiculosDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
-	private String veiculo;
-	private String marca;
-	private Integer ano;
-	private String descricao;
-	private StatusVendaVeiculo vendido;
 	
+	@NotNull
+	@NotBlank(message = "Informe o nome do veículo")
+	private String veiculo;
+	
+	@NotNull
+	@NotBlank(message = "Informe a marca do veículo")
+	private String marca;
+	
+	@NotNull
+	@Size(min = 4, max = 4, message = "Informe o ano corretamente, Ex: dd/MM/yyyy")
+	@Positive
+	@NotBlank(message = "Informe o ano do veículo")
+	private String ano;
+	
+	@NotNull
+	@NotBlank(message = "Informe a descrição do veículo")
+	private String descricao;
+	
+	private StatusVendaVeiculo vendido;
+		
 	public VeiculosDTO() {
 	}
 
-	public VeiculosDTO(Long id, String veiculo, String marca, Integer ano, String descricao,
+	public VeiculosDTO(Long id, String veiculo, String marca, String ano, String descricao,
 			StatusVendaVeiculo vendido) {
 		this.id = id;
 		this.veiculo = veiculo;
@@ -61,11 +81,11 @@ public class VeiculosDTO implements Serializable {
 		this.marca = marca;
 	}
 
-	public Integer getAno() {
+	public String getAno() {
 		return ano;
 	}
 
-	public void setAno(Integer ano) {
+	public void setAno(String ano) {
 		this.ano = ano;
 	}
 

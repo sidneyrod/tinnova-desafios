@@ -2,6 +2,8 @@ package com.sid.exerciciocinco.controller;
 
 import java.net.URI;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -49,14 +51,14 @@ public class VeiculosController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<VeiculosDTO> inserir(@RequestBody VeiculosDTO dto) {
+	public ResponseEntity<VeiculosDTO> inserir(@Valid @RequestBody VeiculosDTO dto) {
 		dto = service.inserir(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
 		return ResponseEntity.created(uri).body(dto);
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<VeiculosDTO> atualizar(@PathVariable Long id, @RequestBody VeiculosDTO dto) {
+	public ResponseEntity<VeiculosDTO> atualizar(@PathVariable Long id, @Valid @RequestBody VeiculosDTO dto) {
 		dto = service.atualizar(id, dto);		
 		return ResponseEntity.ok().body(dto);
 	}
