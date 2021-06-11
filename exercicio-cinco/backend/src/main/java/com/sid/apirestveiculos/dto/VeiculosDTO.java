@@ -22,7 +22,7 @@ public class VeiculosDTO implements Serializable {
 	@NotBlank(message = "Informe a marca do veículo")
 	private String marca;
 	
-	@NotNull
+	@NotNull(message = "O ano deve ser informado")
 	@Digits(integer = 4, fraction = 0, message = "O ano deve possuir 4 dígitos, Ex: yyyy")
 	private Integer ano;
 	
