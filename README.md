@@ -1,3 +1,5 @@
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/sidneyrod/tinnova-desafios/blob/main/LICENSE)
+
 # Desafio
 Estes cinco exercícios são parte de um teste de desenvolvimento aplicado por uma empresa de indústria de software.
 
