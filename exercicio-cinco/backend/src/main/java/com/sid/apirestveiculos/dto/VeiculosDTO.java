@@ -2,10 +2,9 @@ package com.sid.apirestveiculos.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
-import javax.validation.constraints.Size;
 
 import com.sid.apirestveiculos.entities.Veiculos;
 import com.sid.apirestveiculos.entities.enums.StatusVendaVeiculo;
@@ -24,10 +23,8 @@ public class VeiculosDTO implements Serializable {
 	private String marca;
 	
 	@NotNull
-	@Size(min = 4, max = 4, message = "Informe o ano corretamente, Ex: dd/MM/yyyy")
-	@Positive
-	@NotBlank(message = "Informe o ano do veículo")
-	private String ano;
+	@Digits(integer = 4, fraction = 0, message = "O ano deve possuir 4 dígitos, Ex: yyyy")
+	private Integer ano;
 	
 	@NotNull
 	@NotBlank(message = "Informe a descrição do veículo")
@@ -38,7 +35,7 @@ public class VeiculosDTO implements Serializable {
 	public VeiculosDTO() {
 	}
 
-	public VeiculosDTO(Long id, String veiculo, String marca, String ano, String descricao,
+	public VeiculosDTO(Long id, String veiculo, String marca, Integer ano, String descricao,
 			StatusVendaVeiculo vendido) {
 		this.id = id;
 		this.veiculo = veiculo;
@@ -81,11 +78,11 @@ public class VeiculosDTO implements Serializable {
 		this.marca = marca;
 	}
 
-	public String getAno() {
+	public Integer getAno() {
 		return ano;
 	}
 
-	public void setAno(String ano) {
+	public void setAno(Integer ano) {
 		this.ano = ano;
 	}
 
