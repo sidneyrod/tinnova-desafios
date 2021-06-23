@@ -13,6 +13,7 @@ public class Program {
 		int numero5 = 4;
 		int numero6 = 5;
 		int numero7 = 6;
+		
 		Fatorial f = new Fatorial();
 		
 		System.out.println(numero1 + "! = " + f.calculoFatorial(numero1));
@@ -21,6 +22,6 @@ public class Program {
 		System.out.println(numero4 + "! = " + f.calculoFatorial(numero4));
 		System.out.println(numero5 + "! = " + f.calculoFatorial(numero5));
 		System.out.println(numero6 + "! = " + f.calculoFatorial(numero6));
-		System.out.println(numero6 + "! = " + f.calculoFatorial(numero7));
+		System.out.println(numero7 + "! = " + f.calculoFatorial(numero7));
 	}
 }
