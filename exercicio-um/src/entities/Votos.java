@@ -1,6 +1,8 @@
 package entities;
 
 public class Votos {
+	
+	private final static double PORCENTAGEM_TOTAL = 100.0;
 
 	private Double totalEleitores;
 	private Double votosValidos;
@@ -50,14 +52,14 @@ public class Votos {
 	}
 	
 	public Double percentualVotosValidos(Double percentual) {
-		return (votosValidos * 100) / totalEleitores;
+		return (votosValidos * PORCENTAGEM_TOTAL) / totalEleitores;
 	}
 	
 	public Double percentualVotosBrancos(Double percentual) {
-		return (votosBrancos * 100) / totalEleitores;
+		return (votosBrancos * PORCENTAGEM_TOTAL) / totalEleitores;
 	}
 	
 	public Double percentualVotosNulos(Double percentual) {
-		return (votosNulos * 100) / totalEleitores;
+		return (votosNulos * PORCENTAGEM_TOTAL) / totalEleitores;
 	}
 }
