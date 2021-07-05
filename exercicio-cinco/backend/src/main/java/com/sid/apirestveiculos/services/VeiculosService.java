@@ -5,7 +5,6 @@ import java.util.Optional;
 import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -15,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.sid.apirestveiculos.dto.VeiculosDTO;
 import com.sid.apirestveiculos.entities.Veiculos;
 import com.sid.apirestveiculos.repository.VeiculosRepository;
-import com.sid.apirestveiculos.services.exceptions.DatabaseException;
 import com.sid.apirestveiculos.services.exceptions.ResourceNotFoundException;
 
 @Service
