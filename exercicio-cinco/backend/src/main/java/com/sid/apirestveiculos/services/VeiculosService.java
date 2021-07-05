@@ -2,6 +2,8 @@ package com.sid.apirestveiculos.services;
 
 import java.util.Optional;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -45,10 +47,13 @@ public class VeiculosService {
 
 	@Transactional
 	public VeiculosDTO atualizar(Long id, VeiculosDTO dto) {
-		Optional<Veiculos> obj = repository.findById(id);
-		Veiculos veiculos = obj.orElseThrow(() -> new ResourceNotFoundException("Entidade " + id + " não encontrada"));
-		copiaDtoParaEntidade(dto, veiculos);
-		return new VeiculosDTO(veiculos);
+		try {
+			Veiculos veiculos = repository.getById(id);
+			copiaDtoParaEntidade(dto, veiculos);
+			return new VeiculosDTO(veiculos);
+		} catch (EntityNotFoundException e) {
+			throw new ResourceNotFoundException("Entidade " + id + " não encontrada");
+		}
 	}
 	
 	public void delete(Long id) {
