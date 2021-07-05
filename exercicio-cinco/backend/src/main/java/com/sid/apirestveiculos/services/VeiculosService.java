@@ -61,8 +61,6 @@ public class VeiculosService {
 			repository.deleteById(id);
 		} catch (EmptyResultDataAccessException e) {
 			throw new ResourceNotFoundException("Id não encontrado" + id);
-		} catch (DataIntegrityViolationException e) {
-			throw new DatabaseException("Violação de integridade");
 		}
 	}
 	
