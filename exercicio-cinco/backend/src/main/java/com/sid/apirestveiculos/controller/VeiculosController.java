@@ -34,7 +34,7 @@ public class VeiculosController {
 	private VeiculosService service;
 	
 	@GetMapping
-	@ApiOperation(value = "Retorna os veículos veículos")
+	@ApiOperation(value = "Retorna todos os veículos")
 	public ResponseEntity<List<VeiculosDTO>> findAll() {
 	List<VeiculosDTO> list = service.findAll();
 		return ResponseEntity.ok().body(list);
