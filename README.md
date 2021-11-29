@@ -38,5 +38,4 @@ target="_blank" rel="noreferrer">API RESTFULL - JSON - TESTES</a></p>
 
 ## Autor
 
-<p className="text-light">Realizado por <a href="https://github.com/sidneyrod" 
-target="_blank" rel="noreferrer">Sidney Rodrigues</a></p>
+[![Linkedin Badge](https://img.shields.io/badge/sidney&nbsp;rodrigues-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sidney-rodrigues-6305b0148/)
